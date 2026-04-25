@@ -1,10 +1,10 @@
 name: Repo-Variable-Demo
 on: [push]
 jobs:
-  demo:
+  info:
     runs-on: ubuntu-latest
     steps:
-      - name: use repo variables
-        run: |
-          echo "Deploy Environment: ${{vars.DEPLOY_ENV}}"
-          echo "AWS Region: ${{vars.AWS_REGION}}"
+      - run: |
+          echo "Repo Name=$GITHUB_REPOSITORY"
+          echo "Commit ID is=$GITHUB_SHA"
+          echo "Actor=$GITHUB_ACTOR"
