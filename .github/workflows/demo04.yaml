@@ -1,0 +1,14 @@
+name: Demo1-Workflow Level Env
+on: push
+env:
+  ENV_NAME: workflow-variable
+jobs:
+  run-app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Build Docker Image
+        run: docker build -t env-demo .
+      - name: Run Container
+        run: docker run env-demo
