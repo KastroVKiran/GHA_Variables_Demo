@@ -1,0 +1,10 @@
+name: Repo-Variable-Demo
+on: [push]
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: use repo variables
+        run: |
+          echo "Deploy Environment: ${{vars.DEPLOY_ENV}}"
+          echo "AWS Region: ${{vars.AWS_REGION}}"
