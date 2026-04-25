@@ -1,10 +1,9 @@
-name: Repo-Variable-Demo
-on: [push]
+name: Step-Output_Demo
+on: push
 jobs:
-  info:
+  test-demo-kastro:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          echo "Repo Name=$GITHUB_REPOSITORY"
-          echo "Commit ID is=$GITHUB_SHA"
-          echo "Actor=$GITHUB_ACTOR"
+      - id: generate
+        run: echo "version=1.1.1" > $GITHUB_OUTPUT
+      - run: echo "Version=${steps.generate.outputs.version}}"
