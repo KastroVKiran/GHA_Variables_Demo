@@ -11,4 +11,4 @@ jobs:
       - name: Build Docker Image
         run: docker build -t env-demo .
       - name: Run Container
-        run: docker run env-demo
+        run: docker run -e ENV_NAME=$ENV_NAME env-demo
